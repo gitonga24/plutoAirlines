@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+  <meta name="author" content="GeeksLabs">
+  <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+  <link rel="shortcut icon" href="img/favicon.png">
+
+  <title>Employee Classifications Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap theme -->
+  <link href="css/bootstrap-theme.css" rel="stylesheet">
+  <!--external css-->
+  <!-- font icon -->
+  <link href="css/elegant-icons-style.css" rel="stylesheet" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Custom styles -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet" /><!-- No change detected -->
+
+
+</head>
+
+<body>
+  <!-- container section start -->
+  <section id="container" class="">
+    <!--header start-->
+
+    <header class="header dark-bg">
+      <div class="toggle-nav">
+        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+      </div>
+
+      <!--logo start-->
+      <a href="index.html" class="logo">Pluto Airlines </a>
+      <!--logo end-->
+
+
+
+
+    </header>
+    <!--header end-->
+
+        <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu">
+          <li class="active">
+            <a class="" th:href="@{/index}">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                          <i class="icon_document_alt"></i>
+                          <span>Vehicles</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+            <ul class="sub">
+              <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
+              <li><a class="" th:href="@{/vehicleMaintenances}">Maintenance</a></li>
+              <li><a class="" th:href="@{/vehicleMovements}">Movements</a></li>
+              <li><a class="" th:href="@{/vehicleHires}">Hires</a></li>
+
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>Paramenters</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+            <ul class="sub">
+              <li><a class="" th:href="@{/vehicleMakes}">Vehicle Make</a></li>
+              <li><a class="" th:href="@{/vehicleTypes}">Vehicle Type</a></li>
+              <li><a class="" th:href="@{/vehicleModels}">Vehicle Models</a></li>
+              <li><a class="" th:href="@{/vehicleStatuses}">Status Values</a></li>
+            </ul>
+          </li>
+         
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>People</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+            <ul class="sub">
+              <li><a class="" th:href="@{/employees}"> Employees </a></li>
+              <li><a class="" th:href="@{/clients}">Clients</a></li>
+              <li><a class="" th:href="@{/suppliers}">Suppliers</a></li>
+              <li><a class="" th:href="@{/contacts}">Contacts</a></li>
+              <li><a class="" th:href="@{/users}">Users</a></li>
+            </ul>
+          </li>
+          <li>
+            
+            
+            
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>HR Settings</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+            <ul class="sub">
+              <li><a class="" th:href="@{/jobTitles}">Job Titles</a></li>
+              <li><a class="" th:href="@{/employeeTypes}">Employee Types</a></li>
+            </ul>
+          </li>
+          <li>
+          
+          
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>Accounts</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+            <ul class="sub">
+              <li><a class="" th:href="@{/invoices}">Invoices</a></li>
+              <li><a class="" th:href="@{/invoiceStatuses}">Invoice Status Values</a></li>
+            </ul>
+          </li>
+   
+
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>Globals</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+            <ul class="sub">
+              <li><a class="" th:href="@{/countries}">Countries</a></li>
+              <li><a class="" th:href="@{/states}">States</a></li>
+              <li><a class="" th:href="@{/locations}">Locations</a></li>
+            </ul>
+          </li>
+
+
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+        <!--sidebar ends here-->
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+
+        <!-- page start-->
+        <h1>List of Employee Classifications</h1>
+        
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Entry</button>      
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Classification</th>
+
+                 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="employeeClassification: ${employeeClassifications}">
+                    <td th:text ="${employeeClassification.id}"></td>
+                    <td th:text ="${employeeClassification.employeeClassificationDescription}"></td>
+
+                    <td>
+                    <div class = "btn-group">
+                    <a th:href="@{/states/findById/(id=${state.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                    <a th:href="@{/states/findById/(id=${state.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>                    
+                    <a th:href="@{/states/delete/(id=${state.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                    
+                    </div>
+                    </td>
+                    
+                  </tr>        
+        		</tbody>
+       	 </table>
+ 
+ <!-- Add Modal -->  
+   <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New State</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+      <div class="modal-body">
+        <form th:action="@{/employeeClassifications/addNew}" method="post">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Id</label>
+            <input type="text" class="form-control" id="recipient-name" name="employeeClassificationid">
+          </div>
+         
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Classification:</label>
+            <input type="text" class="form-control" id="recipient-name" name = "employeeClassificationDescription">
+          </div>
+
+          
+          
+                           <div class="form-group">
+        	<button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+          
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- End Add Modal -->      	 
+       	         
+        <!-- page end-->
+
+
+  <!-- javascripts -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+
+  <!-- nice scroll -->
+  <script src="js/jquery.scrollTo.min.js"></script>
+  <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+ 
+  <!--custome script for all page-->
+  <script src="js/scripts.js"></script>
+  <script src="js/country.js"></script>
+
+
+
+</body>
+
+
