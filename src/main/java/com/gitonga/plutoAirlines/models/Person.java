@@ -47,6 +47,97 @@ public class Person {
 	private String address;
 	private String phone;
 	private String email;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getFirstname() {
+		return firstname;
+	}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getSocialSecurityNumber() {
+		return socialSecurityNumber;
+	}
+	public void setSocialSecurityNumber(String socialSecurityNumber) {
+		this.socialSecurityNumber = socialSecurityNumber;
+	}
+	public Country getCountry() {
+		return country;
+	}
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+	public Integer getCountryid() {
+		return countryid;
+	}
+	public void setCountryid(Integer countryid) {
+		this.countryid = countryid;
+	}
+	public State getState() {
+		return state;
+	}
+	public void setState(State state) {
+		this.state = state;
+	}
+	public Integer getStateid() {
+		return stateid;
+	}
+	public void setStateid(Integer stateid) {
+		this.stateid = stateid;
+	}
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", title=" + title
+				+ ", socialSecurityNumber=" + socialSecurityNumber + ", country=" + country + ", countryid=" + countryid
+				+ ", state=" + state + ", stateid=" + stateid + ", dateOfBirth=" + dateOfBirth + ", city=" + city
+				+ ", address=" + address + ", phone=" + phone + ", email=" + email + "]";
+	}
 
 	
 

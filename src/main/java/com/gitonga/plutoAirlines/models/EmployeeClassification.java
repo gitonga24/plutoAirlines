@@ -20,41 +20,60 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="employeeClassificationid")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class EmployeeClassification  {
 	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer employeeClassificationid;
-	private String employeeClassificationDescription;
+	private Integer id;
+	private String description;
+	private String  jobGrade;
+	
+	
+	public Integer getId() {
+		return id;
+	}
+	
+	
+//	@OneToMany(mappedBy="employeeClassification")
+//	private List<Employee> employees;
 
 	
+	
+	
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		description = description;
+	}
+	public String getJobGrade() {
+		return jobGrade;
+	}
+	public void setJobGrade(String jobGrade) {
+		jobGrade = jobGrade;
+	}
 
-	
-	
 
-	
-	
-	public Integer getEmployeeClassificationid() {
-		return employeeClassificationid;
-	}
-	public void setEmployeeClassificationid(Integer employeeClassificationid) {
-		this.employeeClassificationid = employeeClassificationid;
-	}
-	public String getEmployeeClassificationDescription() {
-		return employeeClassificationDescription;
-	}
-	public void setEmployeeClassificationDescription(String employeeClassificationDescription) {
-		this.employeeClassificationDescription = employeeClassificationDescription;
-	}
 	@Override
 	public String toString() {
-		return "EmployeeClassification [employeeClassificationid=" + employeeClassificationid
-				+ ", employeeClassificationDescription=" + employeeClassificationDescription + "]";
+		return "EmployeeClassification [id=" + id + ", description=" + description + ", jobGrade=" + jobGrade + "]";
 	}
+	
+	
+	
 
 
+
+	
+
+	
+	
 
 	
 

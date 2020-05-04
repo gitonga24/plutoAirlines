@@ -13,7 +13,8 @@ import com.gitonga.plutoAirlines.repositories.EmployeeClassificationRepository;
 @Service
 public class EmployeeClassificationService {
 	
-	@Autowired EmployeeClassificationRepository employeeTypeRepo;
+	@Autowired 
+	private EmployeeClassificationRepository employeeTypeRepo;
 	
 	public void save(EmployeeClassification employeeClassification) {
 		employeeTypeRepo.save(employeeClassification);
@@ -23,7 +24,7 @@ public class EmployeeClassificationService {
 		return employeeTypeRepo.findAll();
 	}
 	
-	public Optional<EmployeeClassification> findById(Integer id){
+	public Optional<EmployeeClassification> findById(int id){
 		return employeeTypeRepo.findById(id);
 	}
 

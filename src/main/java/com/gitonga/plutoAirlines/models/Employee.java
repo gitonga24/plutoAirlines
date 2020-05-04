@@ -17,26 +17,19 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper=false)
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Employee extends Person{
 	
 	
 
-	
+//	@ManyToOne
+//	@JoinColumn(name="employeeClassificationid", insertable=false, updatable=false)
+//	private EmployeeClassification employeeClassification;
 
+	private Integer employeeClassificationid;
 	
 	@DateTimeFormat(pattern ="yyyy-MM-dd")
 	private Date hireDate;
-
-
-
-
-
-
-
-
-
-
 
 
 

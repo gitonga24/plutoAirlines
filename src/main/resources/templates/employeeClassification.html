@@ -163,6 +163,7 @@
                   <tr>
                     <th>id</th>
                     <th>Classification</th>
+                    <th>Job Title</th>
 
                  
                   </tr>
@@ -170,7 +171,8 @@
                 <tbody>
                   <tr th:each="employeeClassification: ${employeeClassifications}">
                     <td th:text ="${employeeClassification.id}"></td>
-                    <td th:text ="${employeeClassification.employeeClassificationDescription}"></td>
+                    <td th:text ="${employeeClassification.description}"></td>
+                    <td th:text ="${employeeClassification.jobGrade}"></td>
 
                     <td>
                     <div class = "btn-group">
@@ -200,12 +202,17 @@
         <form th:action="@{/employeeClassifications/addNew}" method="post">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id</label>
-            <input type="text" class="form-control" id="recipient-name" name="employeeClassificationid">
+            <input type="text" class="form-control" id="recipient-name" name="id">
           </div>
          
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Classification:</label>
-            <input type="text" class="form-control" id="recipient-name" name = "employeeClassificationDescription">
+            <input type="text" class="form-control" id="recipient-name" name = "description">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Job Grade:</label>
+            <input type="text" class="form-control" id="recipient-name" name = "jobGrade">
           </div>
 
           
