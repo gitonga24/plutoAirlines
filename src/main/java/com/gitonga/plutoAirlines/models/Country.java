@@ -31,8 +31,23 @@ public class Country {
 	
 
 	
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
+
+
+
 	@OneToMany(mappedBy="country")
 	private List<State> states;
+	
+	@OneToMany(mappedBy="country")
+	private List<Employee> employees;
 
 
 

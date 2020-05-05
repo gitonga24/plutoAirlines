@@ -1,11 +1,14 @@
 package com.gitonga.plutoAirlines.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -34,6 +37,12 @@ public class State {
 	@JoinColumn(name="countryid", insertable=false, updatable=false)
 	private Country country;
 	
+	
+	@OneToMany(mappedBy="state")
+	private List<Employee> employees;
+	
+	
+	
 	private Integer countryid;
 
 	public Integer getId() {
@@ -42,6 +51,14 @@ public class State {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
 
 	public String getName() {
@@ -87,7 +104,7 @@ public class State {
 	@Override
 	public String toString() {
 		return "State [id=" + id + ", name=" + name + ", capital=" + capital + ", stateCode=" + stateCode + ", country="
-				+ country + ", countryid=" + countryid + "]";
+				+ country + ", employees=" + employees + ", countryid=" + countryid + "]";
 	}
 	
 	

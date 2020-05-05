@@ -8,17 +8,23 @@ import org.springframework.stereotype.Service;
 
 import com.gitonga.plutoAirlines.models.Country;
 import com.gitonga.plutoAirlines.models.State;
+import com.gitonga.plutoAirlines.repositories.CountryRepository;
 import com.gitonga.plutoAirlines.repositories.StateRepository;
 
 @Service
 public class StateService {
 	
-	@Autowired
-	private StateRepository stateRepo;
+	@Autowired private StateRepository stateRepo;
+	
 	
 	//
 	public void save(State state) {
 		stateRepo.save(state);
+	}
+	
+	
+	public List<State> getStates() {
+		return stateRepo.findAll();
 	}
 	
 	

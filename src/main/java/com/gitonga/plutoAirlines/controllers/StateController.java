@@ -13,22 +13,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gitonga.plutoAirlines.models.Country;
 import com.gitonga.plutoAirlines.models.State;
+import com.gitonga.plutoAirlines.repositories.CountryRepository;
 import com.gitonga.plutoAirlines.repositories.StateRepository;
+import com.gitonga.plutoAirlines.services.CountryService;
 import com.gitonga.plutoAirlines.services.StateService;
 
 @Controller
 public class StateController {
 
-	@Autowired
-	private StateService stateService;
+	@Autowired 	private StateService stateService;
+	@Autowired private CountryService countryService;
+	
 	
 	@GetMapping("states")
 	public String findAll(Model model) {
+		
 		model.addAttribute("states", stateService.findAll());
+		model.addAttribute("countries", countryService.findAll());
 		return "State";
 	}
 	
 	
+	@GetMapping()
 	@RequestMapping("states/findById")
 	@ResponseBody
 	public Optional<State> findById(Integer id) {
