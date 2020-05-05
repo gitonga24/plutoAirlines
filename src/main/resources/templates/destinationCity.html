@@ -9,7 +9,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Employee Management Page</title>
+  <title>Destination City Management Page</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -153,54 +153,33 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-
+      
+      
+      
         <!-- page start-->
-        <h1>Employee Management Page</h1>
+        <h1>List of Destination Cities</h1>
         
-<a th:href="@{/employeeClassifications}"   style="color: #3371FF" > View Employee Classifications</a> <br/> <br/>  
-        
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Employee</button>      
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Destination City</button>      
               <table class="table">
                 <thead>
                   <tr>
                     <th>id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>State ID</th>
-                    <th>Country ID</th>
-                    <th>Phone Number</th>
-                    <th>email</th>
-                    <th>DOB</th>
-                    <th>SSN</th>
-                    <th>Emp. Class ID</th>
-                    <th>Hire Date</th>
-
+                    <th>City Name</th>
+                    <th>City Code</th>
+                    <th>Actions</th>
                  
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="employee: ${employees}">
-                    <td th:text ="${employee.id}"></td>
-                    <td th:text ="${employee.firstname}"></td>
-                    <td th:text ="${employee.lastname}"></td>
-                    <td th:text ="${employee.address}"></td>
-                    <td th:text ="${employee.city}"></td>
-                    <td th:text ="${employee.stateid}"></td>
-                    <td th:text ="${employee.countryid}"></td>
-                    <td th:text ="${employee.phone}"></td>
-                    <td th:text ="${employee.email}"></td>
-                    <td th:text ="${employee.dateOfBirth}"></td>
-                    <td th:text ="${employee.socialSecurityNumber}"></td>
-                    <td th:text ="${employee.dateOfBirth}"></td>
-                    <td th:text ="${employee.hireDate}"></td>
-
+                  <tr th:each="destinationCity: ${destinationCities}">
+                    <td th:text ="${destinationCity.id}"></td>
+                    <td th:text ="${destinationCity.name}"></td>
+                    <td th:text ="${destinationCity.cityCode}"></td>
                     <td>
                     <div class = "btn-group">
-                    <a th:href="@{/employees/findById/(id=${employee.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
-                    <a th:href="@{/employees/findById/(id=${employee.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>                    
-                    <a th:href="@{/employees/delete/(id=${employee.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                    <a th:href="@{/destinationCities/findById/(id=${destinationCity.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                    <a th:href="@{/destinationCities/findById/(id=${destinationCity.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>                    
+                    <a th:href="@{/destinationCities/delete/(id=${destinationCity.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
                     
                     </div>
                     </td>
@@ -208,7 +187,6 @@
                   </tr>        
         		</tbody>
        	 </table>
-       	 
        	 
        	         
         <!-- page end-->
@@ -218,243 +196,37 @@
   
   
   
- <!-- Add Modal -->  
+  <!-- Add Modal -->  
    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Employee</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add New Destination City</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/employees/addNew}" method="post">
-          
-          
+        <form th:action="@{/destinationCities/addNew}" method="post">
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Employee Id</label>
-            <input type="text" class="form-control" id="recipient-name" name="id">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">First Name</label>
-            <input type="text" class="form-control" id="recipient-name" name="firstname">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Last Name</label>
-            <input type="text" class="form-control" id="recipient-name" name="lastname">
+            <label for="recipient-name" class="col-form-label">City Name</label>
+            <input type="text" class="form-control" id="recipient-name" name="name">
           </div>
          
-         <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Address</label>
-            <input type="text" class="form-control" id="recipient-name" name="address">
-          </div>
-          
-          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">City:</label>
-            <input type="text" class="form-control" id="recipient-name" name = "city">
+            <label for="recipient-name" class="col-form-label">City Code:</label>
+            <input type="text" class="form-control" id="recipient-name" name = "cityCode">
           </div>
           
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">State Id</label>
-            <input type="text" class="form-control" id="recipient-name" name="stateid">
-          </div>
-          
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Country Id:</label>
-            <input type="text" class="form-control" id="recipient-name" name="countryid">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Phone:</label>
-            <input type="text" class="form-control" id="recipient-name" name="phone">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" id="recipient-name" name="email">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">DOB:</label>
-            <input type="text" class="form-control" id="recipient-name" name="dateOfBirth">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">SSN:</label>
-            <input type="text" class="form-control" id="recipient-name" name="socialSecurityNumber">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Employee Classification ID:</label>
-            <input type="text" class="form-control" id="recipient-name" name="employeeClassificationid">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Hire Date:</label>
-            <input type="text" class="form-control" id="recipient-name" name="hireDate">
-          </div>
 
           
-
-
-
-                 <div class="form-group">
+                           <div class="form-group">
         	<button type="submit" class="btn btn-primary">Submit</button>
           </div>
           
           
           
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-      </div>
-    </div>
-  </div>
-</div> 
- <!-- End Add Modal --> 
-  
-  
-<!-- Edit Modal -->  
-  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update Employee</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-  
-      <div class="modal-body">
-        <form th:action="@{/employees/update}" method="put">
-        
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Id:</label>
-            <input type="text" class="form-control" id="idEdit" name="id"  readonly>
-          </div>
-        
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">First Name:</label>
-            <input type="text" class="form-control" id="countryNameEdit" name="firstname">
-          </div>
-         
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Last Name:</label>
-            <input type="text" class="form-control" id="capitalEdit" name = "lastname">
-          </div>
-          
-                    <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Address:</label>
-            <input type="text" class="form-control" id="codeEdit" name="address">
-          </div>
-          
-       
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">City:</label>
-            <input type="text" class="form-control" id="countryNameEdit" name="city">
-          </div>
-         
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">State Id:</label>
-            <input type="text" class="form-control" id="capitalEdit" name = "stateid">
-          </div>
-          
-                    <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Country id:</label>
-            <input type="text" class="form-control" id="codeEdit" name="countryid">
-            </div>
-          
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Phone:</label>
-            <input type="text" class="form-control" id="capitalEdit" name = "phone">
-          </div>
-          
-                    <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" id="codeEdit" name="email">
-          </div>
-          
-       
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">DOB:</label>
-            <input type="text" class="form-control" id="countryNameEdit" name="dateOfBirth">
-          </div>
-         
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">SSN:</label>
-            <input type="text" class="form-control" id="capitalEdit" name = "socialSecurityNumber">
-          </div>
-          
-                    <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Employee Classification:</label>
-            <input type="text" class="form-control" id="codeEdit" name="employeeClassificationid">
-            </div>
-            
-             <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Hire Date:</label>
-            <input type="text" class="form-control" id="codeEdit" name="hireDate">
-            </div>
-
-                 <div class="form-group">
-        	<button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-          
-          
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-      </div>
-    </div>
-  </div>
-</div>  
-<!-- End Edit Modal -->  
-  
-  
-  <!-- Details Modal -->  
-  <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Country Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-  
-      <div class="modal-body">
-        <form th:action="@{/countries/update}" method="put">
-        
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Id</label>
-            <input type="text" class="form-control" id="idDetails" name="id"  readonly>
-          </div>
-        
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Name</label>
-            <input type="text" class="form-control" id="countryNameDetails" name="countryName">
-          </div>
-         
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capital:</label>
-            <input type="text" class="form-control" id="capitalDetails" name = "capital">
-          </div>
-          
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Code:</label>
-            <input type="text" class="form-control" id="codeDetails" name="code">
-          </div>
-                   
         </form>
       </div>
       <div class="modal-footer">
@@ -464,9 +236,97 @@
     </div>
   </div>
 </div>
-<!-- End Details Modal -->  
+  <!-- End Add Modal -->
   
+ <!--Edit Modal -->  
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Destination City </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+      <div class="modal-body">
+        <form th:action="@{/destinationCities/update}" method="put">
+        
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Id</label>
+            <input type="text" class="form-control" id="idEdit" name="id"  readonly>
+          </div>
+        
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name: </label>
+            <input type="text" class="form-control" id="nameEdit" name="name">
+          </div>
+         
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">City Code</label>
+            <input type="text" class="form-control" id="capitalEdit" name = "cityCode">
+          </div>
+          
 
+          <div class="form-group">
+        	<button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Edit Modal-->  
+  
+  
+    <!--Detail Modal -->  
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Destination City Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+      <div class="modal-body">
+        <form th:action="@{/destinationCities/update}" method="put">
+        
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Id</label>
+            <input type="text" class="form-control" id="idDetails" name="id"  readonly>
+          </div>
+        
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name: </label>
+            <input type="text" class="form-control" id="nameDetails" name="name">
+          </div>
+         
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Code</label>
+            <input type="text" class="form-control" id="capitalDetails" name = "cityCode">
+          </div>
+          
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+    <!--End Detail Modal--> 
+  
+  
 <!--Delete Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -488,7 +348,7 @@
     </div>
   </div>
 </div>
-<!-- End Delete Modal-->     
+<!-- End Delete Modal-->  
   
   
   <!-- javascripts -->
@@ -502,10 +362,11 @@
  
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
-  <script src="js/employee.js"></script>
+  <script src="js/destinationCity.js"></script>
 
 
 </body>
 
 </html>
-  
+         	 
+       	 
