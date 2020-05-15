@@ -29,8 +29,30 @@ public class DestinationCity {
 	private String cityCode;
 	
 	
+	private Integer countryid;
 	
 	
+	
+	@ManyToOne
+	@JoinColumn(name="countryid", insertable=false, updatable=false)
+	private Country country;
+	
+	
+	public Integer getCountryid() {
+		return countryid;
+	}
+	public void setCountryid(Integer countryid) {
+		this.countryid = countryid;
+	}
+	
+	
+	
+	public Country getCountry() {
+		return country;
+	}
+	public void setCountry(Country country) {
+		this.country = country;
+	}
 	public Integer getId() {
 		return id;
 	}

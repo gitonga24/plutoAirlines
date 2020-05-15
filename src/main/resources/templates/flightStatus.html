@@ -9,7 +9,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Country Management Page</title>
+  <title>Home Page</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -60,28 +60,28 @@
           <li class="sub-menu">
             <a href="javascript:;" class="">
                           <i class="icon_document_alt"></i>
-                          <span>Vehicles</span>
+                          <span>Airliners</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
-              <li><a class="" th:href="@{/vehicleMaintenances}">Maintenance</a></li>
-              <li><a class="" th:href="@{/vehicleMovements}">Movements</a></li>
-              <li><a class="" th:href="@{/vehicleHires}">Hires</a></li>
+              <li><a class="" th:href="@{/passengerCarriers}">Passenger Carriers</a></li>
+              <li><a class="" th:href="@{/cargoCarriers}">Cargo Carriers</a></li>
+
 
             </ul>
           </li>
           <li class="sub-menu">
             <a href="javascript:;" class="">
                           <i class="icon_desktop"></i>
-                          <span>Paramenters</span>
+                          <span>Flights</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" th:href="@{/vehicleMakes}">Vehicle Make</a></li>
-              <li><a class="" th:href="@{/vehicleTypes}">Vehicle Type</a></li>
-              <li><a class="" th:href="@{/vehicleModels}">Vehicle Models</a></li>
-              <li><a class="" th:href="@{/vehicleStatuses}">Status Values</a></li>
+              <li><a class="" th:href="@{/commercialFlights}">Commercial Flights</a></li>
+              <li><a class="" th:href="@{/vehicleTypes}">Cargo Flights</a></li>
+              <li><a class="" th:href="@{/vehicleModels}">Private Flights</a></li>
+              <li><a class="" th:href="@{/flightStatuses}">Flight Statuses</a></li>
+              
             </ul>
           </li>
          
@@ -153,37 +153,30 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-      
-      
-      
+
         <!-- page start-->
-        <h1>List of States</h1>
+        <h1>List of Flight Statuses</h1>
         
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New State</button>      
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Flight Status</button>      
               <table class="table">
                 <thead>
                   <tr>
                     <th>id</th>
-                    <th>State Name</th>
-                    <th>State Capital</th>
-                    <th>State Code</th>
-                    <th>Country ID</th>
+                    <th>Flight Status</th>
                     <th>Actions</th>
                  
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="state: ${states}">
-                    <td th:text ="${state.id}"></td>
-                    <td th:text ="${state.name}"></td>
-                    <td th:text ="${state.capital}"></td>
-                    <td th:text ="${state.stateCode}"></td>
-                    <td th:text ="${state.countryid}"></td>
+                  <tr th:each="flightStatus: ${flightStatuses}">
+                    <td th:text ="${flightStatus.id}"></td>
+                    <td th:text ="${flightStatus.status}"></td>
+
                     <td>
                     <div class = "btn-group">
-                    <a th:href="@{/states/findById/(id=${state.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
-                    <a th:href="@{/states/findById/(id=${state.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>                    
-                    <a th:href="@{/states/delete/(id=${state.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                    <a th:href="@{/flightStatuses/findById/(id=${flightStatus.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                    <a th:href="@{/flightStatuses/findById/(id=${flightStatus.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>                    
+                    <a th:href="@{/flightStatuses/delete/(id=${flightStatus.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
                     
                     </div>
                     </td>
@@ -191,47 +184,28 @@
                   </tr>        
         		</tbody>
        	 </table>
-       	 
-       	         
+       	   	         
         <!-- page end-->
-      </section>
 
-  <!-- container section end -->
-  
-  
-  
+
   <!-- Add Modal -->  
    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New State</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add New Flight Status</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/states/addNew}" method="post">
+        <form th:action="@{/flightStatuses/addNew}" method="post">
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">State Name</label>
-            <input type="text" class="form-control" id="recipient-name" name="name">
+            <label for="recipient-name" class="col-form-label">Status </label>
+            <input type="text" class="form-control" id="statusname" name="status">
           </div>
          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capital:</label>
-            <input type="text" class="form-control" id="recipient-name" name = "capital">
-          </div>
-          
-                    <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Code:</label>
-            <input type="text" class="form-control" id="recipient-name" name="stateCode">
-          </div>
-          
-                     <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Country ID:</label>
-            <input type="text" class="form-control" id="recipient-name" name="countryid">
-          </div>
           
           
                            <div class="form-group">
@@ -263,7 +237,7 @@
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/states/update}" method="put">
+        <form th:action="@{/flightStatuses/update}" method="put">
         
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id</label>
@@ -271,35 +245,10 @@
           </div>
         
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Name: </label>
-            <input type="text" class="form-control" id="nameEdit" name="name">
+            <label for="recipient-name" class="col-form-label">Status </label>
+            <input type="text" class="form-control" id="statusEdit" name="status">
           </div>
          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capital:</label>
-            <input type="text" class="form-control" id="capitalEdit" name = "capital">
-          </div>
-          
-                    <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Code:</label>
-            <input type="text" class="form-control" id="stateCodeEdit" name="stateCode">
-          </div>
-          
-
-          
-              <div class="form-group">
-            <label for="ddlStateDetails" class="col-form-label">Country </label>
-            	<select class="form-control" id="ddlStateEdit" name="countryid">
-            	 	<option>-SELECT-</option>
-            		<option th:each="country: ${countries}"
-            				th:value="${country.id}"
-            				th:text="${country.countryName}">
-            		</option>
-            	
-            	</select>
-          </div>
-
-          
 
 
           <div class="form-group">
@@ -324,14 +273,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">View State Details</h5>
+        <h5 class="modal-title" id="exampleModalLabel">View Flight Statuses</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/states/update}" method="put">
+        <form th:action="@{/flightStatuses/update}" method="put">
         
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id</label>
@@ -339,29 +288,12 @@
           </div>
         
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Name: </label>
-            <input type="text" class="form-control" id="nameDetails" name="name">
+            <label for="recipient-name" class="col-form-label">Status </label>
+            <input type="text" class="form-control" id="statusDetails" name="status">
           </div>
          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capital:</label>
-            <input type="text" class="form-control" id="capitalDetails" name = "capital">
-          </div>
-          
-                    <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Code:</label>
-            <input type="text" class="form-control" id="stateCodeDetails" name="stateCode">
-          </div>
-          
 
-          
-        <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Country Id</label>
-            
-            <input type="text" class="form-control" id="countryidDetails" name="countryid" >
-          </div>
-          
-        
+
           
         </form>
       </div>
@@ -373,8 +305,7 @@
   </div>
 </div>
     <!--End Detail Modal--> 
-  
-  
+
 <!--Delete Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -397,8 +328,9 @@
   </div>
 </div>
 <!-- End Delete Modal-->  
-  
-  
+
+
+
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -410,11 +342,10 @@
  
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
-  <script src="js/state.js"></script>
+  <script src="js/flightStatus.js"></script>
+
 
 
 </body>
 
-</html>
-         	 
-       	 
+

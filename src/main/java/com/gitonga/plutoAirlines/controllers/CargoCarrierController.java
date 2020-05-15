@@ -25,7 +25,7 @@ public class CargoCarrierController {
 	@GetMapping("cargoCarriers")
 	public String findAll(Model model) {
 		model.addAttribute("cargoCarriers", cargoCarrierService.findAll());
-		return "CargoCarrier";
+		return "cargoCarrier";
 	}
 	
 	

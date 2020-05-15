@@ -42,7 +42,7 @@ public class StateController {
 	}
 	
 	
-	//Add Country
+	//Add 
 		@PostMapping(value="states/addNew")
 		public String addNew(State state) {
 			stateService.save(state);

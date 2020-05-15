@@ -5,7 +5,9 @@ import java.util.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +25,9 @@ public class Carrier {
 	private String name;
 	private int manufactureYear;
 	private Date lastMaintenanceDate; 
+	
+	
+	
 	
 	
 	

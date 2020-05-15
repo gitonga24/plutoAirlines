@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -39,6 +40,8 @@ public class Employee extends Person{
 		return state;
 	}
 
+
+	
 
 
 	public void setState(State state) {

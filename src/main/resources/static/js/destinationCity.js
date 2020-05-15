@@ -7,6 +7,7 @@ $('document').ready(function() {
 			$('#idEdit').val(destinationCity.id);
 			$('#nameEdit').val(destinationCity.name);
 			$('#capitalEdit').val(destinationCity.cityCode);
+			$('#countryidEdit').val(destinationCity.countryid);
 		});
 		$('#editModal').modal();			
 	});
@@ -18,6 +19,7 @@ $('document').ready(function() {
 			$('#idDetails').val(destinationCity.id);
 			$('#nameDetails').val(destinationCity.name);
 			$('#capitalDetails').val(destinationCity.cityCode);
+			$('#countryidDetails').val(destinationCity.countryid);
 		});
 		$('#detailsModal').modal();			
 	});

@@ -14,17 +14,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.gitonga.plutoAirlines.models.Country;
 import com.gitonga.plutoAirlines.models.DestinationCity;
 import com.gitonga.plutoAirlines.repositories.DestinationCityRepository;
+import com.gitonga.plutoAirlines.services.CountryService;
 import com.gitonga.plutoAirlines.services.DestinationCityService;
 
 @Controller
 public class DestinationCityController {
 
-	@Autowired
-	private DestinationCityService destinationCityService;
+	@Autowired private DestinationCityService destinationCityService;
+	@Autowired private CountryService countryService;
+	
 	
 	@GetMapping("destinationCities")
 	public String findAll(Model model) {
+		
 		model.addAttribute("destinationCities", destinationCityService.findAll());
+		model.addAttribute("countries", countryService.findAll());
 		return "DestinationCity";
 	}
 	

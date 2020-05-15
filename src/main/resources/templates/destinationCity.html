@@ -166,6 +166,7 @@
                     <th>id</th>
                     <th>City Name</th>
                     <th>City Code</th>
+                    <th>Country id</th>
                     <th>Actions</th>
                  
                   </tr>
@@ -175,6 +176,7 @@
                     <td th:text ="${destinationCity.id}"></td>
                     <td th:text ="${destinationCity.name}"></td>
                     <td th:text ="${destinationCity.cityCode}"></td>
+                    <td th:text ="${destinationCity.countryid}"></td>
                     <td>
                     <div class = "btn-group">
                     <a th:href="@{/destinationCities/findById/(id=${destinationCity.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
@@ -217,6 +219,11 @@
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">City Code:</label>
             <input type="text" class="form-control" id="recipient-name" name = "cityCode">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Country Id</label>
+            <input type="text" class="form-control" id="recipient-name" name = "countryid">
           </div>
           
 
@@ -267,6 +274,11 @@
             <input type="text" class="form-control" id="capitalEdit" name = "cityCode">
           </div>
           
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Country ID</label>
+            <input type="text" class="form-control" id="countryidEdit" name = "countryid">
+          </div>
+          
 
           <div class="form-group">
         	<button type="submit" class="btn btn-primary">Submit</button>
@@ -312,6 +324,11 @@
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Code</label>
             <input type="text" class="form-control" id="capitalDetails" name = "cityCode">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Country Id</label>
+            <input type="text" class="form-control" id="countryidDetails" name = "countryid">
           </div>
           
           

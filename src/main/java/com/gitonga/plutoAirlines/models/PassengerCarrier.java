@@ -1,6 +1,8 @@
 package com.gitonga.plutoAirlines.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -16,6 +18,7 @@ public class PassengerCarrier extends Carrier {
 	
 	int capacity;
 
+	
 	public int getCapacity() {
 		return capacity;
 	}

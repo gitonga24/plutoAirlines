@@ -3,13 +3,10 @@ $('document').ready(function() {
 	$('table #editButton').on('click', function(event){
 		event.preventDefault();		
 		var href = $(this).attr('href');
-		$.get(href, function(state, status){
-			$('#idEdit').val(state.id);
-			$('#nameEdit').val(state.name);
-			$('#capitalEdit').val(state.capital);
-			$('#stateCodeEdit').val(state.stateCode);
-			$('#countryidEdit').val(state.countryid);
-			$('#detailsEdit').val(state.details);
+		$.get(href, function(flightStatus, status){
+			$('#idEdit').val(flightStatus.id);
+			$('#statusEdit').val(flightStatus.status);
+
 		});
 		$('#editModal').modal();			
 	});
@@ -19,13 +16,10 @@ $('document').ready(function() {
 	$('table #detailsButton').on('click', function(event){
 		event.preventDefault();		
 		var href = $(this).attr('href');
-		$.get(href, function(state, status){
-			$('#idDetails').val(state.id);
-			$('#nameDetails').val(state.name);
-			$('#capitalDetails').val(state.capital);
-			$('#stateCodeDetails').val(state.stateCode);
-			$('#countryidDetails').val(state.countryid);
-			$('#detailsDetails').val(state.details);
+		$.get(href, function(flightStatus, status){
+			$('#idDetails').val(flightStatus.id);
+			$('#statusDetails').val(flightStatus.status);
+
 		});
 		$('#detailsModal').modal();			
 	});

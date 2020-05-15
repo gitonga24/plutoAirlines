@@ -31,21 +31,38 @@ public class Country {
 	
 
 	
+	
+
+
+	@OneToMany(mappedBy="country")
+	private List<State> states;
+	
+	@OneToMany(mappedBy="country")
+	private List<State> destinationCities;
+	
+	public List<State> getDestinationCities() {
+		return destinationCities;
+	}
+
+	
+	
 	public List<Employee> getEmployees() {
 		return employees;
 	}
-
 
 
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
 
-
-
-	@OneToMany(mappedBy="country")
-	private List<State> states;
 	
+	
+	public void setDestinationCities(List<State> destinationCities) {
+		this.destinationCities = destinationCities;
+	}
+
+
+
 	@OneToMany(mappedBy="country")
 	private List<Employee> employees;
 

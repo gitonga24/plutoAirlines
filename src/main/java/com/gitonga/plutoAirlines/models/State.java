@@ -31,6 +31,7 @@ public class State {
 	private String name;
 	private String capital;
 	private String stateCode;
+	private Integer countryid;
 	
 	
 	@ManyToOne
@@ -43,7 +44,7 @@ public class State {
 	
 	
 	
-	private Integer countryid;
+	
 
 	public Integer getId() {
 		return id;
