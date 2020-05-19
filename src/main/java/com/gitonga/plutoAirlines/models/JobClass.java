@@ -21,60 +21,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
-public class EmployeeClassification  {
+public class JobClass  {
 	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String description;
-	private String  jobGrade;
-	
-	
+	private String JobClassDescription;
 	public Integer getId() {
 		return id;
 	}
-	
-	
-//	@OneToMany(mappedBy="employeeClassification")
-//	private List<Employee> employees;
-
-	
-	
-	
-	
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getDescription() {
-		return description;
+	public String getJobClassDescription() {
+		return JobClassDescription;
 	}
-	public void setDescription(String description) {
-		description = description;
+	public void setJobClassDescription(String jobClassDescription) {
+		JobClassDescription = jobClassDescription;
 	}
-	public String getJobGrade() {
-		return jobGrade;
-	}
-	public void setJobGrade(String jobGrade) {
-		jobGrade = jobGrade;
-	}
-
-
 	@Override
 	public String toString() {
-		return "EmployeeClassification [id=" + id + ", description=" + description + ", jobGrade=" + jobGrade + "]";
+		return "JobClass [id=" + id + ", JobClassdescription=" + JobClassDescription + "]";
 	}
+		
 	
-	
-	
-
-
-
-	
-
-	
-	
-
 	
 
 }
