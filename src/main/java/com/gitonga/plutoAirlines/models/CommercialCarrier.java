@@ -1,6 +1,9 @@
 package com.gitonga.plutoAirlines.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
@@ -14,25 +17,35 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=false)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
-public class PassengerCarrier extends Carrier {
+public class CommercialCarrier extends Carrier {
 	
-	int capacity;
+	
+
+	private Integer totalSeats;
 
 	
-	public int getCapacity() {
-		return capacity;
+	public Integer getTotalSeats() {
+		return totalSeats;
 	}
 
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
+	public void setTotalSeats(Integer totalSeats) {
+		this.totalSeats = totalSeats;
 	}
 
+	
+	
 	@Override
 	public String toString() {
-		return "PassengerCarrier [capacity=" + capacity + "]";
+		return "CommercialCarrier [totalSeats=" + totalSeats + "]";
 	}
+
+
+
 	
-	
+
+
+
+
 	
 
 }

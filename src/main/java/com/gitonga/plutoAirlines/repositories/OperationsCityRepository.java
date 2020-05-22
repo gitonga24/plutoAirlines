@@ -3,10 +3,10 @@ package com.gitonga.plutoAirlines.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.gitonga.plutoAirlines.models.DestinationCity;
+import com.gitonga.plutoAirlines.models.OperationsCity;
 
 
 @Repository
-public interface DestinationCityRepository extends JpaRepository<DestinationCity, Integer>{
+public interface OperationsCityRepository extends JpaRepository<OperationsCity, Integer>{
 
 }

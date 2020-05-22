@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +26,7 @@ public class Carrier {
 	private Integer id;
 	private String name;
 	private int manufactureYear;
-	private Date lastMaintenanceDate; 
+	@DateTimeFormat(pattern ="yyyy-MM-dd")	private Date lastMaintenanceDate; 
 	
 	
 	

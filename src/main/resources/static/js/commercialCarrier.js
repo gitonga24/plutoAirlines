@@ -6,8 +6,8 @@ $('document').ready(function() {
 		$.get(href, function(passengerCarrier, status){
 			$('#idEdit').val(passengerCarrier.id);
 			$('#nameEdit').val(passengerCarrier.name);
-			$('#capitalEdit').val(passengerCarrier.capacity);
-			$('#codeEdit').val(passengerCarrier.lastMaintenanceDate);
+			$('#totalSeatsEdit').val(passengerCarrier.totalSeats);
+			$('#lastMaintenanceDateEdit').val(passengerCarrier.lastMaintenanceDate);
 			$('#manufactureYearEdit').val(passengerCarrier.manufactureYear);
 			
 		});
@@ -20,10 +20,10 @@ $('document').ready(function() {
 		$.get(href, function(passengerCarrier, status){
 			$('#idDetails').val(passengerCarrier.id);
 			$('#nameDetails').val(passengerCarrier.name);
-			$('#capitalDetails').val(passengerCarrier.capacity);
-			$('#codeDetails').val(passengerCarrier.lastMaintenanceDate);
-			$('#countryidDetails').val(passengerCarrier.manufactureYear);
-			$('#detailsDetails').val(passengerCarrier.details);
+			$('#totalSeatsDetails').val(passengerCarrier.totalSeats);
+			$('#lastMaintenanceDateDetails').val(passengerCarrier.lastMaintenanceDate);
+			$('#manufactureYearDetails').val(passengerCarrier.manufactureYear);
+			
 		});
 		$('#detailsModal').modal();			
 	});

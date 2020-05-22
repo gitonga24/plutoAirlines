@@ -164,7 +164,7 @@
                   <tr>
                     <th>id</th>
                     <th>Name</th>
-                    <th>Capacity</th>
+                    <th>Maximum Weight</th>
                     <th>Last Maintenance Date</th>
                     <th>Manufacture Year</th>
                     <th>Actions</th>
@@ -175,7 +175,7 @@
                   <tr th:each="cargoCarrier: ${cargoCarriers}">
                     <td th:text ="${cargoCarrier.id}"></td>
                     <td th:text ="${cargoCarrier.name}"></td>
-                    <td th:text ="${cargoCarrier.capacity}"></td>
+                    <td th:text ="${cargoCarrier.maxWeight}"></td>
                     <td th:text ="${cargoCarrier.lastMaintenanceDate}"></td>
                     <td th:text ="${cargoCarrier.manufactureYear}"></td>
 
@@ -219,8 +219,8 @@
           </div>
          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capacity:</label>
-            <input type="text" class="form-control" id="recipient-name" name = "capacity">
+            <label for="recipient-name" class="col-form-label">Maximum Weight</label>
+            <input type="text" class="form-control" id="recipient-name" name = "maxWeight">
           </div>
           
           <div class="form-group">
@@ -277,13 +277,13 @@
           </div>
          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capacity:</label>
-            <input type="text" class="form-control" id="capitalEdit" name = "capacity">
+            <label for="recipient-name" class="col-form-label">Maximum Weight</label>
+            <input type="text" class="form-control" id="maxWeightEdit" name = "maxWeight">
           </div>
           
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Last Maintenance Date:</label>
-            <input type="text" class="form-control" id="codeEdit" name="lastMaintenanceDate">
+            <input type="text" class="form-control" id="lastMaintenanceDateEdit" name="lastMaintenanceDate">
           </div>
           
           
@@ -336,13 +336,13 @@
           </div>
          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capacity:</label>
-            <input type="text" class="form-control" id="capitalDetails" name = "capacity">
+            <label for="recipient-name" class="col-form-label">Maximum Weight </label>
+            <input type="text" class="form-control" id="maxWeightDetails" name = "maxWeight">
           </div>
           
                     <div class="form-group">
             <label for="recipient-name" class="col-form-label">Last Maintenance Date</label>
-            <input type="text" class="form-control" id="codeDetails" name="lastMaintenanceDate">
+            <input type="text" class="form-control" id="lastMaintenanceDateDetails" name="lastMaintenanceDate">
           </div>
           
 
@@ -350,7 +350,7 @@
         <div class="form-group">
             <label for="recipient-name" class="col-form-label">Manufacture Year</label>
             
-            <input type="text" class="form-control" id="countryidDetails" name="manufactureYear" >
+            <input type="text" class="form-control" id="manufactureYearDetails" name="manufactureYear" >
           </div>
           
         

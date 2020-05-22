@@ -3,11 +3,11 @@ $('document').ready(function() {
 	$('table #editButton').on('click', function(event){
 		event.preventDefault();		
 		var href = $(this).attr('href');
-		$.get(href, function(destinationCity, status){
-			$('#idEdit').val(destinationCity.id);
-			$('#nameEdit').val(destinationCity.name);
-			$('#capitalEdit').val(destinationCity.cityCode);
-			$('#countryidEdit').val(destinationCity.countryid);
+		$.get(href, function(operationsCity, status){
+			$('#idEdit').val(operationsCity.id);
+			$('#nameEdit').val(operationsCity.name);
+			$('#cityCodeEdit').val(operationsCity.cityCode);
+			$('#countryidEdit').val(operationsCity.countryid);
 		});
 		$('#editModal').modal();			
 	});
@@ -15,11 +15,11 @@ $('document').ready(function() {
 	$('table #detailsButton').on('click', function(event){
 		event.preventDefault();		
 		var href = $(this).attr('href');
-		$.get(href, function(destinationCity, status){
-			$('#idDetails').val(destinationCity.id);
-			$('#nameDetails').val(destinationCity.name);
-			$('#capitalDetails').val(destinationCity.cityCode);
-			$('#countryidDetails').val(destinationCity.countryid);
+		$.get(href, function(operationsCity, status){
+			$('#idDetails').val(operationsCity.id);
+			$('#nameDetails').val(operationsCity.name);
+			$('#cityCodeDetails').val(operationsCity.cityCode);
+			$('#countryidDetails').val(operationsCity.countryid);
 		});
 		$('#detailsModal').modal();			
 	});

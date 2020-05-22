@@ -16,26 +16,26 @@ import lombok.EqualsAndHashCode;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class CargoCarrier extends Carrier {
 	
-	int capacity;
-
-	
-	
-	
-	
-	
-	public int getCapacity() {
-		return capacity;
+	private Float maxWeight;
+		public Float getMaxWeight() {
+		return maxWeight;
 	}
-
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
+	public void setMaxWeight(Float maxWeight) {
+		this.maxWeight = maxWeight;
 	}
 
 	@Override
 	public String toString() {
-		return "CargoCarrier [capacity=" + capacity + "]";
+		return "CargoCarrier [maxWeight=" + maxWeight + "]";
 	}
 	
+	
+	
+	
+	
+	
+
+
 	
 	
 

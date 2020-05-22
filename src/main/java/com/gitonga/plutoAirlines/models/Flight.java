@@ -33,6 +33,7 @@ public class Flight {
 	private Integer id;	
 	private String departureCity;
 	private String destinationCity;
+	private String flightDescription;
 	
 	@DateTimeFormat(pattern ="yyyy-MM-dd HH:mm")   private Date departureDateTime;
 	
@@ -43,6 +44,12 @@ public class Flight {
 	
 	
 	
+	public String getFlightDescription() {
+		return flightDescription;
+	}
+	public void setFlightDescription(String flightDescription) {
+		this.flightDescription = flightDescription;
+	}
 	public Integer getPassengers() {
 		return passengers;
 	}
@@ -85,11 +92,13 @@ public class Flight {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "Flight [id=" + id + ", departureCity=" + departureCity + ", destinationCity=" + destinationCity
-				+ ", departureDateTime=" + departureDateTime + ", arrivalDateTime=" + arrivalDateTime + ", status="
-				+ status + "]";
+				+ ", flightDescription=" + flightDescription + ", departureDateTime=" + departureDateTime
+				+ ", arrivalDateTime=" + arrivalDateTime + ", status=" + status + ", passengers=" + passengers + "]";
 	}
 	
 	

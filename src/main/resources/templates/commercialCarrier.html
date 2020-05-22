@@ -9,7 +9,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Passenger Carrier Page</title>
+  <title>Commercial Carrier Page</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -64,7 +64,7 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" th:href="@{/passengerCarriers}">Passenger Carriers</a></li>
+              <li><a class="" th:href="@{/commercialCarriers}">Commercial Carriers</a></li>
               <li><a class="" th:href="@{/cargoCarriers}">Cargo Carriers</a></li>
 
 
@@ -156,15 +156,15 @@
       
       
         <!-- page start-->
-        <h1>List of Passenger Carriers</h1>
+        <h1>List of Commercial Carriers</h1>
         
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Passenger Carrier</button>      
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Commerical Carrier</button>      
               <table class="table">
                 <thead>
                   <tr>
                     <th>id</th>
                     <th>Name</th>
-                    <th>Capacity</th>
+                    <th>Total Seats</th>
                     <th>Last Maintenance Date</th>
                     <th>Manufacture Year</th>
                     <th>Actions</th>
@@ -172,18 +172,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="passengerCarrier: ${passengerCarriers}">
-                    <td th:text ="${passengerCarrier.id}"></td>
-                    <td th:text ="${passengerCarrier.name}"></td>
-                    <td th:text ="${passengerCarrier.capacity}"></td>
-                    <td th:text ="${passengerCarrier.lastMaintenanceDate}"></td>
-                    <td th:text ="${passengerCarrier.manufactureYear}"></td>
+                  <tr th:each="commercialCarrier: ${commercialCarriers}">
+                    <td th:text ="${commercialCarrier.id}"></td>
+                    <td th:text ="${commercialCarrier.name}"></td>
+                    <td th:text ="${commercialCarrier.totalSeats}"></td>
+                    <td th:text ="${commercialCarrier.lastMaintenanceDate}"></td>
+                    <td th:text ="${commercialCarrier.manufactureYear}"></td>
 
                     <td>
                     <div class = "btn-group">
-                    <a th:href="@{/passengerCarriers/findById/(id=${passengerCarrier.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
-                    <a th:href="@{/passengerCarriers/findById/(id=${passengerCarrier.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>                    
-                    <a th:href="@{/passengerCarriers/delete/(id=${passengerCarrier.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                    <a th:href="@{/commercialCarriers/findById/(id=${commercialCarrier.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                    <a th:href="@{/commercialCarriers/findById/(id=${commercialCarrier.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>                    
+                    <a th:href="@{/commercialCarriers/delete/(id=${commercialCarrier.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
                     
                     </div>
                     </td>
@@ -205,28 +205,30 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Passenger Carrier</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add New Commerical Carrier</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/passengerCarriers/addNew}" method="post">
+        <form th:action="@{/commercialCarriers/addNew}" method="post">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Name</label>
             <input type="text" class="form-control" id="recipient-name" name="name">
           </div>
          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capacity:</label>
-            <input type="text" class="form-control" id="recipient-name" name = "capacity">
+            <label for="recipient-name" class="col-form-label">Total Seats</label>
+            <input type="text" class="form-control" id="recipient-name" name = "totalSeats">
           </div>
           
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Last MaintenanceDate</label>
-            <input type="text" class="form-control" id="recipient-name" name = "lastMaintenanceDate">
-          </div>
+          <div class="form-group row">
+                   <label for="txtDateOfBirth" class="col-sm-8 col-form-label"> Last Maintenance Date</label>
+                          <div class="col-sm-10">
+          <input type="date" class="form-control" id="lastMaintenanceDateEdit" name="lastMaintenanceDate" placeholder="Maintenance Date">
+                                                    </div>
+                                                </div>
           
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Manufacture Year:</label>
@@ -264,7 +266,7 @@
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/passengerCarriers/update}" method="put">
+        <form th:action="@{/commercialCarriers/update}" method="put">
         
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id</label>
@@ -277,14 +279,16 @@
           </div>
          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capacity:</label>
-            <input type="text" class="form-control" id="capitalEdit" name = "capacity">
+            <label for="recipient-name" class="col-form-label">Total Seats</label>
+            <input type="text" class="form-control" id="totalSeatsEdit" name = "totalSeats">
           </div>
           
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Last Maintenance Date:</label>
-            <input type="text" class="form-control" id="codeEdit" name="lastMaintenanceDate">
-          </div>
+          <div class="form-group row">
+                                                <label for="txtHireDateAdd" class="col-sm-8 col-form-label"> Last Maintenance Date</label>
+                                                <div class="col-sm-8">
+                                                    <input type="date" class="form-control" id="lastMaintenanceDateEdit" name="lastMaintenanceDate" placeholder="Last Maintenance Date">
+                                                </div>
+                                            </div>
           
           
           <div class="form-group">
@@ -323,7 +327,7 @@
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/passengerCarriers/update}" method="put">
+        <form th:action="@{/commercialCarriers/update}" method="put">
         
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id</label>
@@ -336,21 +340,20 @@
           </div>
          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capacity:</label>
-            <input type="text" class="form-control" id="capitalDetails" name = "capacity">
+            <label for="recipient-name" class="col-form-label">Total Seats</label>
+            <input type="text" class="form-control" id="totalSeatsDetails" name = "totalSeats">
           </div>
           
                     <div class="form-group">
             <label for="recipient-name" class="col-form-label">Last Maintenance Date</label>
-            <input type="text" class="form-control" id="codeDetails" name="lastMaintenanceDate">
+            <input type="text" class="form-control" id="lastMaintenanceDateDetails" name="lastMaintenanceDate">
           </div>
           
-
           
         <div class="form-group">
             <label for="recipient-name" class="col-form-label">Manufacture Year</label>
             
-            <input type="text" class="form-control" id="countryidDetails" name="manufactureYear" >
+            <input type="text" class="form-control" id="manufactureYearDetails" name="manufactureYear" >
           </div>
           
         
@@ -402,7 +405,7 @@
  
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
-  <script src="js/passengerCarrier.js"></script>
+  <script src="js/commercialCarrier.js"></script>
 
 
 </body>

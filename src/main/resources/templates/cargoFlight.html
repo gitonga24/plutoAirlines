@@ -9,7 +9,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Destination City Management Page</title>
+  <title>Home Page</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -60,28 +60,26 @@
           <li class="sub-menu">
             <a href="javascript:;" class="">
                           <i class="icon_document_alt"></i>
-                          <span>Vehicles</span>
+                          <span>Airliners</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
-              <li><a class="" th:href="@{/vehicleMaintenances}">Maintenance</a></li>
-              <li><a class="" th:href="@{/vehicleMovements}">Movements</a></li>
-              <li><a class="" th:href="@{/vehicleHires}">Hires</a></li>
+              <li><a class="" th:href="@{/passengerCarriers}">Passenger Carriers</a></li>
+              <li><a class="" th:href="@{/cargoCarriers}">Cargo Carriers</a></li>
+
 
             </ul>
           </li>
           <li class="sub-menu">
             <a href="javascript:;" class="">
                           <i class="icon_desktop"></i>
-                          <span>Paramenters</span>
+                          <span>Flights</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" th:href="@{/vehicleMakes}">Vehicle Make</a></li>
-              <li><a class="" th:href="@{/vehicleTypes}">Vehicle Type</a></li>
-              <li><a class="" th:href="@{/vehicleModels}">Vehicle Models</a></li>
-              <li><a class="" th:href="@{/vehicleStatuses}">Status Values</a></li>
+              <li><a class="" th:href="@{/commercialFlights}">Commercial Flights</a></li>
+              <li><a class="" th:href="@{/cargoFlights}">Cargo Flights</a></li>
+              <li><a class="" th:href="@{/flightStatuses}">Flight Statuses</a></li>
             </ul>
           </li>
          
@@ -153,35 +151,43 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-      
-      
-      
+
         <!-- page start-->
-        <h1>List of Destination Cities</h1>
+        <h1>List of Cargo Flights</h1>
         
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Destination City</button>      
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> Add New Cargo Flight</button>      
               <table class="table">
                 <thead>
                   <tr>
-                    <th>id</th>
-                    <th>City Name</th>
-                    <th>City Code</th>
-                    <th>Country id</th>
+                    <th>Id</th>
+                    <th>Departure City</th>
+                    <th>Departure Date/Time</th>
+                    <th>Destination City</th>
+                    <th>Arrival Date/Time</th>
+                    <th>Passengers</th>
+                    <th>Total Weight</th>
+                    <th>Max Laggages </th>
+                    <th>Status</th>
                     <th>Actions</th>
                  
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="destinationCity: ${destinationCities}">
-                    <td th:text ="${destinationCity.id}"></td>
-                    <td th:text ="${destinationCity.name}"></td>
-                    <td th:text ="${destinationCity.cityCode}"></td>
-                    <td th:text ="${destinationCity.countryid}"></td>
+                  <tr th:each="cargoFlight: ${cargoFlights}">
+                    <td th:text ="${cargoFlight.id}"></td>
+                    <td th:text ="${cargoFlight.departureCity}"></td>
+                    <td th:text ="${cargoFlight.departureDateTime}"></td>
+                    <td th:text ="${cargoFlight.destinationCity}"></td>
+                    <td th:text ="${cargoFlight.arrivalDateTime}"></td>
+                    <td th:text ="${cargoFlight.passengers}"></td>
+                    <td th:text ="${cargoFlight.totalWeight}"></td>
+                    <td th:text ="${cargoFlight.maxWeight}"></td>
+                    <td th:text ="${cargoFlight.status}"></td>
                     <td>
                     <div class = "btn-group">
-                    <a th:href="@{/destinationCities/findById/(id=${destinationCity.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
-                    <a th:href="@{/destinationCities/findById/(id=${destinationCity.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>                    
-                    <a th:href="@{/destinationCities/delete/(id=${destinationCity.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                    <a th:href="@{/cargoFlights/findById/(id=${cargoFlight.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                    <a th:href="@{/cargoFlights/findById/(id=${cargoFlight.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>                    
+                    <a th:href="@{/cargoFlights/delete/(id=${cargoFlight.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
                     
                     </div>
                     </td>
@@ -189,46 +195,61 @@
                   </tr>        
         		</tbody>
        	 </table>
-       	 
-       	         
-        <!-- page end-->
-      </section>
-
-  <!-- container section end -->
-  
-  
-  
+ 
   <!-- Add Modal -->  
    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Destination City</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add New Cargo Flight</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/destinationCities/addNew}" method="post">
+        <form th:action="@{/cargoFlights/addNew}" method="post">
+          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">City Name</label>
-            <input type="text" class="form-control" id="recipient-name" name="name">
+            <label for="recipient-name" class="col-form-label">Departure City</label>
+            <input type="text" class="form-control" id="recipient-name" name="departureCity">
           </div>
          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">City Code:</label>
-            <input type="text" class="form-control" id="recipient-name" name = "cityCode">
+            <label for="recipient-name" class="col-form-label">Departure Date/Time</label>
+            <input type="text" class="form-control" id="recipient-name" name="departureDateTime">
           </div>
           
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Country Id</label>
-            <input type="text" class="form-control" id="recipient-name" name = "countryid">
+            <label for="recipient-name" class="col-form-label">Destination City</label>
+            <input type="text" class="form-control" id="recipient-name" name="destinationCity">
           </div>
           
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Arrival Date/Time</label>
+            <input type="text" class="form-control" id="recipient-name" name="arrivalDateTime">
+          </div>
+
 
           
-                           <div class="form-group">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Total Weight</label>
+            <input type="text" class="form-control" id="recipient-name" name="totalWeight">
+          </div>
+         
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Maximum Weight Allowed</label>
+            <input type="text" class="form-control" id="recipient-name" name = "maxWeight">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Flight Status</label>
+            <input type="text" class="form-control" id="recipient-name" name="status">
+          </div>
+          
+          
+          
+          <div class="form-group">
         	<button type="submit" class="btn btn-primary">Submit</button>
           </div>
           
@@ -243,21 +264,22 @@
     </div>
   </div>
 </div>
-  <!-- End Add Modal -->
-  
+  <!-- End Add Modal --> 
+       	 
+
  <!--Edit Modal -->  
   <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update Destination City </h5>
+        <h5 class="modal-title" id="exampleModalLabel">Update Cargo Flight </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/destinationCities/update}" method="put">
+        <form th:action="@{/cargoFlights/update}" method="put">
         
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id</label>
@@ -265,18 +287,53 @@
           </div>
         
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Name: </label>
-            <input type="text" class="form-control" id="nameEdit" name="name">
-          </div>
+            <label for="ddlCargoFlightEdit" class="col-form-label">Departure City </label>
+            	<select class="form-control" id="ddlCargoFlightEdit" name="departureCity">
+            	 	<option>-SELECT-</option>
+            		<option th:each="operationsCity: ${operationsCities}"
+            				th:value="${operationsCity.id}"
+            				th:text="${operationsCity.name}">
+            		</option>
+            	
+            	</select>
+ 				 </div>
+
          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">City Code</label>
-            <input type="text" class="form-control" id="capitalEdit" name = "cityCode">
+            <label for="recipient-name" class="col-form-label">Departure Date/Time </label>
+            <input type="text" class="form-control" id="departureDateTimeEdit" name="departureDateTime">
+          </div>
+
+          
+                    <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Destination City</label>
+            <input type="text" class="form-control" id="destinationCityEdit" name="destinationCity">
+          </div>
+          
+         
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Arrival Date/Time </label>
+            <input type="text" class="form-control" id="arrivalDateTimeEdit" name="arrivalDateTime">
           </div>
           
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Country ID</label>
-            <input type="text" class="form-control" id="countryidEdit" name = "countryid">
+            <label for="recipient-name" class="col-form-label">Passenger Count</label>
+            <input type="text" class="form-control" id="passengersEdit" name="passengers">
+          </div>
+          
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Total Weight</label>
+            <input type="text" class="form-control" id="totalWeightEdit" name="totalWeight">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Maximum Weight Allowed</label>
+            <input type="text" class="form-control" id="maxWeightEdit" name = "maxWeight">
+          </div>
+          
+                    <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Flight Status</label>
+            <input type="text" class="form-control" id="statusEdit" name="status">
           </div>
           
 
@@ -294,22 +351,22 @@
     </div>
   </div>
 </div>
-<!--End Edit Modal-->  
-  
-  
-    <!--Detail Modal -->  
-<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--End Edit Modal--> 
+
+
+ <!--Details Modal -->  
+  <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">View Destination City Details</h5>
+        <h5 class="modal-title" id="exampleModalLabel">  Commercial Flight Details </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
   
       <div class="modal-body">
-        <form th:action="@{/destinationCities/update}" method="put">
+        <form th:action="@{/cargoFlights/update}" method="put">
         
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id</label>
@@ -317,20 +374,46 @@
           </div>
         
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Name: </label>
-            <input type="text" class="form-control" id="nameDetails" name="name">
+            <label for="recipient-name" class="col-form-label">Departure City </label>
+            <input type="text" class="form-control" id="departureCityDetails" name="departureCity">
           </div>
          
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Code</label>
-            <input type="text" class="form-control" id="capitalDetails" name = "cityCode">
+            <label for="recipient-name" class="col-form-label">Departure Date/Time</label>
+            <input type="text" class="form-control" id="departureDateTimeDetails" name = "departureDateTime">
+          </div>
+          
+                    <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Destination City</label>
+            <input type="text" class="form-control" id="destinationCityDetails" name="destinationCity">
+          </div>
+          
+         
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Arrival Date/Time</label>
+            <input type="text" class="form-control" id="arrivalDateTimeDetails" name = "arrivalDateTime">
           </div>
           
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Country Id</label>
-            <input type="text" class="form-control" id="countryidDetails" name = "countryid">
+            <label for="recipient-name" class="col-form-label">Passenger Count</label>
+            <input type="text" class="form-control" id="passengersDetails" name="passengers">
           </div>
           
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Total Weight</label>
+            <input type="text" class="form-control" id="totalWeightDetails" name="totalWeight">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Maximum Weight Allowed</label>
+            <input type="text" class="form-control" id="maxWeightDetails" name = "maxWeight">
+          </div>
+          
+                    <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Flight Status</label>
+            <input type="text" class="form-control" id="statusDetails" name="status">
+          </div>
+         
           
         </form>
       </div>
@@ -341,8 +424,11 @@
     </div>
   </div>
 </div>
-    <!--End Detail Modal--> 
-  
+<!--End Edit Modal--> 
+
+
+
+
   
 <!--Delete Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -367,7 +453,16 @@
 </div>
 <!-- End Delete Modal-->  
   
-  
+       	         
+        <!-- page end-->
+
+
+
+
+
+
+
+
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -379,11 +474,10 @@
  
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
-  <script src="js/destinationCity.js"></script>
+  <script src="js/cargoFlight.js"></script>
+
 
 
 </body>
 
-</html>
-         	 
-       	 
+

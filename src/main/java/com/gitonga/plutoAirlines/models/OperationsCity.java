@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
-public class DestinationCity {
+public class OperationsCity {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -73,7 +73,7 @@ public class DestinationCity {
 	}
 	@Override
 	public String toString() {
-		return "DestinationCity [id=" + id + ", name=" + name + ", cityCode=" + cityCode + "]";
+		return "OperationsCity [id=" + id + ", name=" + name + ", cityCode=" + cityCode + "]";
 	}
 	
 	
