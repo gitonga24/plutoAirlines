@@ -41,6 +41,10 @@ public class Person {
 	private State state;
 	private Integer stateid; 
 	
+ 
+
+	
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfBirth;
 	private String city;

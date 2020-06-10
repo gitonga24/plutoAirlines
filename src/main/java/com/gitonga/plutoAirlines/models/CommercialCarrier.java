@@ -24,6 +24,29 @@ public class CommercialCarrier extends Carrier {
 	private Integer totalSeats;
 
 	
+	@OneToOne
+	@JoinColumn(name="commercialFlightid", insertable=false, updatable=false)
+	private CommercialFlight CommercialFlight;
+	private Integer commercialFlightid;
+	
+	
+	
+	public CommercialFlight getCommercialFlight() {
+		return CommercialFlight;
+	}
+
+	public void setCommercialFlight(CommercialFlight commercialFlight) {
+		CommercialFlight = commercialFlight;
+	}
+
+	public Integer getCommercialFlightid() {
+		return commercialFlightid;
+	}
+
+	public void setCommercialFlightid(Integer commercialFlightid) {
+		this.commercialFlightid = commercialFlightid;
+	}
+
 	public Integer getTotalSeats() {
 		return totalSeats;
 	}
@@ -36,16 +59,9 @@ public class CommercialCarrier extends Carrier {
 	
 	@Override
 	public String toString() {
-		return "CommercialCarrier [totalSeats=" + totalSeats + "]";
+		return "CommercialCarrier [totalSeats=" + totalSeats + ", CommercialFlight=" + CommercialFlight
+				+ ", commercialFlightid=" + commercialFlightid + "]";
 	}
 
-
-
-	
-
-
-
-
-	
 
 }

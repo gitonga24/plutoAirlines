@@ -33,14 +33,18 @@ public class Flight {
 	private Integer id;	
 	private String departureCity;
 	private String destinationCity;
-	private String flightDescription;
+	private String flightDescription; //chi-cmh-mm-dd-yyyy hh:mm
 	
 	@DateTimeFormat(pattern ="yyyy-MM-dd HH:mm")   private Date departureDateTime;
 	
 	@DateTimeFormat(pattern ="yyyy-MM-dd HH:mm") private Date arrivalDateTime;
 	private String status;
 	
-	private Integer passengers;
+	private Integer passengerCount;
+	private Integer maxPassengers;
+	
+
+	
 	
 	
 	
@@ -51,10 +55,22 @@ public class Flight {
 		this.flightDescription = flightDescription;
 	}
 	public Integer getPassengers() {
-		return passengers;
+		return passengerCount;
 	}
-	public void setPassengers(Integer passengers) {
-		this.passengers = passengers;
+	public void setPassengers(Integer passengerCount) {
+		this.passengerCount = passengerCount;
+	}
+	public Integer getPassengerCount() {
+		return passengerCount;
+	}
+	public void setPassengerCount(Integer passengerCount) {
+		this.passengerCount = passengerCount;
+	}
+	public Integer getMaxPassengers() {
+		return maxPassengers;
+	}
+	public void setMaxPassengers(Integer maxPassengers) {
+		this.maxPassengers = maxPassengers;
 	}
 	public Integer getId() {
 		return id;
@@ -98,7 +114,8 @@ public class Flight {
 	public String toString() {
 		return "Flight [id=" + id + ", departureCity=" + departureCity + ", destinationCity=" + destinationCity
 				+ ", flightDescription=" + flightDescription + ", departureDateTime=" + departureDateTime
-				+ ", arrivalDateTime=" + arrivalDateTime + ", status=" + status + ", passengers=" + passengers + "]";
+				+ ", arrivalDateTime=" + arrivalDateTime + ", status=" + status + ", passengerCount=" + passengerCount
+				+ ", maxPassengers=" + maxPassengers + "]";
 	}
 	
 	

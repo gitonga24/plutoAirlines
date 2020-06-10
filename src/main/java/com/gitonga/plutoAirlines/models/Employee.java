@@ -3,9 +3,7 @@ package com.gitonga.plutoAirlines.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 

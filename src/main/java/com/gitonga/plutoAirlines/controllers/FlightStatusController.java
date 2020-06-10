@@ -15,6 +15,8 @@ import com.gitonga.plutoAirlines.models.FlightStatus;
 
 import com.gitonga.plutoAirlines.services.FlightStatusService;
 
+import Exceptions.FlightStatusAlreadyExistsException;
+
 @Controller
 public class FlightStatusController {
 
@@ -43,6 +45,11 @@ public class FlightStatusController {
 		@PostMapping(value="flightStatuses/addNew")
 		public String addNew(FlightStatus flightStatus) {
 			flightStatusService.save(flightStatus);
+			
+			if(true) {
+				throw new FlightStatusAlreadyExistsException();
+			}
+			
 			return "redirect:/flightStatuses";
 		}
 	
