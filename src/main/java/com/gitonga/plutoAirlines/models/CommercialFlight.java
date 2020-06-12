@@ -32,6 +32,8 @@ public class CommercialFlight extends Flight {
 	
 	
 	
+
+	
 	@OneToMany(mappedBy="commercialFlight")
 	private List<CommercialReservation> commercialReservations;
 	

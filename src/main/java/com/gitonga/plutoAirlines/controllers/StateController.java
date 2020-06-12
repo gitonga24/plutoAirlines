@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.gitonga.plutoAirlines.models.Country;
 import com.gitonga.plutoAirlines.models.State;
@@ -30,6 +31,7 @@ public class StateController {
 		
 		model.addAttribute("states", stateService.findAll());
 		model.addAttribute("countries", countryService.findAll());
+		
 		return "State";
 	}
 	
@@ -43,15 +45,37 @@ public class StateController {
 	
 	
 	//Add 
+//		@PostMapping(value="states/addNew")
+//		public String addNew(State state) {
+//			stateService.save(state);
+//			
+//			return "redirect:/states";
+//		}
+//	
+//		
+		
+	
 		@PostMapping(value="states/addNew")
 		public String addNew(State state) {
 			stateService.save(state);
+			
+			ModelAndView modelAndView = new ModelAndView();
+			modelAndView.addObject("successMessage", "This is a test");
+			
+			
+			
 			return "redirect:/states";
 		}
-	
+		
+		
 	
 	@RequestMapping(value="states/update", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(State state) {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("successMessage", "This is a test");
+		
+		
 		stateService.save(state);
 		return "redirect:/states";
 	}

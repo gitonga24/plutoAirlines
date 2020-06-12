@@ -159,10 +159,12 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>Commercial Flight Id</th>
-                    <th>Departure City</th>
+                    
+                    <th> Carrier Id</th>
+                    <th> Flight Description</th>
+                    <th>Departure</th>
                     <th>Departure Date/Time</th>
-                    <th>Destination City</th>
+                    <th>Destination</th>
                     <th>Arrival Date/Time</th>
                     <th>Passengers</th>
                     <th>Total Luggages</th>
@@ -174,7 +176,8 @@
                 </thead>
                 <tbody>
                   <tr th:each="commercialFlight: ${commercialFlights}">
-                    <td th:text ="${commercialFlight.id}"></td>
+                    <td th:text ="${commercialFlight.commercialCarrierid}"></td>
+                    <td th:text ="${commercialFlight.flightDescription}"></td>
                     <td th:text ="${commercialFlight.departureCity}"></td>
                     <td th:text ="${commercialFlight.departureDateTime}"></td>
                     <td th:text ="${commercialFlight.destinationCity}"></td>
@@ -209,6 +212,16 @@
   
       <div class="modal-body">
         <form th:action="@{/commercialFlights/addNew}" method="post">
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Carrier ID</label>
+            <input type="text" class="form-control" id="recipient-name" name="commercialCarrierid">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Flight Description</label>
+            <input type="text" class="form-control" id="recipient-name" name="flightDescription">
+          </div>
           
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Departure City</label>
@@ -283,6 +296,19 @@
             <label for="recipient-name" class="col-form-label">Id</label>
             <input type="text" class="form-control" id="idEdit" name="id"  readonly>
           </div>
+        
+        
+            <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Commercial Carrier Id </label>
+            <input type="text" class="form-control" id="commercialCarrieridEdit" name="commercialCarrierid">
+          </div>
+        
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Flight Description </label>
+            <input type="text" class="form-control" id="commercialCarrieridEdit" name="flightDescription">
+          </div>
+        
+        
         
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Departure City </label>

@@ -5,6 +5,8 @@ $('document').ready(function() {
 		var href = $(this).attr('href');
 		$.get(href, function(commercialFlight, status){
 			$('#idEdit').val(commercialFlight.id);
+			$('#commercialCarrieridEdit').val(commercialFlight.commercialCarrierid);
+			$('#flightDescriptionEdit').val(commercialFlight.flightDescription);
 			$('#departureCityEdit').val(commercialFlight.departureCity);
 			$('#departureDateTimeEdit').val(commercialFlight.departureDateTime);
 			$('#destinationCityEdit').val(commercialFlight.destinationCity);
@@ -25,6 +27,7 @@ $('document').ready(function() {
 		$.get(href, function(commercialFlight, status){
 			$('#idDetails').val(commercialFlight.id);
 			$('#departureCityDetails').val(commercialFlight.departureCity);
+			$('#flightDescriptionDetails').val(commercialFlight.flightDescription);
 			$('#departureDateTimeDetails').val(commercialFlight.departureDateTime);
 			$('#destinationCityDetails').val(commercialFlight.destinationCity);
 			$('#arrivalDateTimeDetails').val(commercialFlight.arrivalDateTime);

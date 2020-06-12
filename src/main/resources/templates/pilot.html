@@ -93,8 +93,8 @@
             <ul class="sub">
               <li><a class="" th:href="@{/employees}"> Employees </a></li>
               <li><a class="" th:href="@{/passengers}">Passengers</a></li>
-              <li><a class="" th:href="@{/suppliers}">Suppliers</a></li>
-              <li><a class="" th:href="@{/contacts}">Contacts</a></li>
+              <li><a class="" th:href="@{/pilots}">Pilots</a></li>
+              <li><a class="" th:href="@{/flightAttendants}">Flight Attendants</a></li>
               <li><a class="" th:href="@{/users}">Users</a></li>
             </ul>
           </li>
@@ -119,12 +119,13 @@
           <li class="sub-menu">
             <a href="javascript:;" class="">
                           <i class="icon_desktop"></i>
-                          <span>Accounts</span>
+                          <span>Reservations</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" th:href="@{/invoices}">Invoices</a></li>
-              <li><a class="" th:href="@{/invoiceStatuses}">Invoice Status Values</a></li>
+              <li><a class="" th:href="@{/commercialReservations}">Comm Reservations</a></li>
+              <li><a class="" th:href="@{/cargoReservations}">Cargo Reservations</a></li>
+            
             </ul>
           </li>
    
@@ -151,16 +152,20 @@
 
 
 
-        <!--main content start-->
-        <section id="main-content">
-            <section class="wrapper">
+
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+
+
 
                 <!-- page start-->
-                <h1>Employee Management Page</h1>
+                <h1>Pilot Management Page</h1>
 
                 <a th:href="@{/jobClasses}" style="color: #3371FF"> View Job Classes</a> <br/> <br/>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Employee</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Pilot</button>
                 <table class="table">
                     <thead>
                         <tr>
@@ -174,20 +179,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="employee: ${employees}">
-                            <td th:text="${employee.id}"></td>
-                            <td th:text="${employee.firstname}"></td>
-                            <td th:text="${employee.lastname}"></td>
-                            <td th:text="${employee.socialSecurityNumber}"></td>
-                            <td th:text="${employee.phone}"></td>
-                            <td th:text="${employee.email}"></td>
+                        <tr th:each="pilot: ${pilots}">
+                            <td th:text="${pilot.id}"></td>
+                            <td th:text="${pilot.firstname}"></td>
+                            <td th:text="${pilot.lastname}"></td>
+                            <td th:text="${pilot.socialSecurityNumber}"></td>
+                            <td th:text="${pilot.phone}"></td>
+                            <td th:text="${pilot.email}"></td>
 
 
                             <td>
                                 <div class="btn-group">
-                                    <a th:href="@{/employees/findById/(id=${employee.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
-                                    <a th:href="@{/employees/findById/(id=${employee.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>
-                                    <a th:href="@{/employees/delete/(id=${employee.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                                    <a th:href="@{/pilots/findById/(id=${pilot.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                                    <a th:href="@{/pilots/findById/(id=${pilot.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>
+                                    <a th:href="@{/pilots/delete/(id=${pilot.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
 
                                 </div>
                             </td>
@@ -207,15 +212,15 @@
 
     <!-- Add Modal -->
             <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <form th:action="@{/employees/addNew}" method="post">
+                <form th:action="@{/pilots/addNew}" method="post">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add New Employee</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Add New Pilot</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-                        </div>
+             </div>
 
                         <div class="modal-body">
                             
@@ -224,7 +229,7 @@
                                     <tr>
                                         <td width="50%">
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Employee Id</label>
+                                                <label for="recipient-name" class="col-form-label">Pilot Id</label>
                                                 <input type="text" class="form-control" id="recipient-name" name="id">
                                             </div>
 
@@ -253,7 +258,7 @@
 
                                             <div class="form-group">
                                                 <label for="ddlStateDetails" class="col-form-label">State </label>
-                                                <select class="form-control" id="ddlEmployeeEdit" name="stateid">
+                                                <select class="form-control" id="ddlPilotEdit" name="stateid">
             	 	<option>-SELECT-</option>
             		<option th:each="state: ${states}"
             				th:value="${state.id}"
@@ -266,7 +271,7 @@
 
                                             <div class="form-group">
                                                 <label for="ddlStateDetails" class="col-form-label">Country </label>
-                                                <select class="form-control" id="ddlEmployeeEdit" name="countryid">
+                                                <select class="form-control" id="ddlPilotEdit" name="countryid">
             	 	<option>-SELECT-</option>
             		<option th:each="country: ${countries}"
             				th:value="${country.id}"
@@ -301,8 +306,8 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Employee Classification ID:</label>
-                                                    <input type="text" class="form-control" id="recipient-name" name="employeeClassificationid">
+                                                    <label for="recipient-name" class="col-form-label">Pilot Classification ID:</label>
+                                                    <input type="text" class="form-control" id="recipient-name" name="pilotClassificationid">
                                                 </div>
 
                                                 <div class="form-group row">
@@ -342,11 +347,11 @@
 
             <!--Edit Modal -->
             <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-               <form th:action="@{/employees/update}" method="put">
+                <form th:action="@{/pilots/update}" method="put">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Update Employee </h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Update Pilot </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -388,7 +393,7 @@
 
                                             <div class="form-group">
                                                 <label for="ddlStateDetails" class="col-form-label">State </label>
-                                                <select class="form-control" id="ddlEmployeeEdit" name="stateid">
+                                                <select class="form-control" id="ddlPilotEdit" name="stateid">
             	 	<option>-SELECT-</option>
             		<option th:each="state: ${states}"
             				th:value="${state.id}"
@@ -400,7 +405,7 @@
 
                                             <div class="form-group">
                                                 <label for="ddlStateDetails" class="col-form-label">Country </label>
-                                                <select class="form-control" id="ddlEmployeeEdit" name="countryid">
+                                                <select class="form-control" id="ddlPilotEdit" name="countryid">
             	 	<option>-SELECT-</option>
             		<option th:each="country: ${countries}"
             				th:value="${country.id}"
@@ -441,7 +446,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Employee Classification</label>
+                                                <label for="recipient-name" class="col-form-label">Pilot Classification</label>
                                                 <input type="text" class="form-control" id="lastnameEdit" name="lastname">
                                             </div>
 
@@ -483,14 +488,14 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Pilot Details</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
                         </div>
 
                         <div class="modal-body">
-                            <form th:action="@{/employees/update}" method="put">
+                            <form th:action="@{/pilots/update}" method="put">
 
                                 <table width="100%">
                                     <tr>
@@ -558,7 +563,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Employee Classification</label>
+                                                <label for="recipient-name" class="col-form-label">Pilot Classification</label>
                                                 <input type="text" class="form-control" id="lastnameDetails" name="lastname">
                                             </div>
 
@@ -616,9 +621,10 @@
 
             <!--custome script for all page-->
             <script src="js/scripts.js"></script>
-            <script src="js/employee.js"></script>
+            <script src="js/pilot.js"></script>
 
 
 </body>
 
-</html>
+</html>      
+      

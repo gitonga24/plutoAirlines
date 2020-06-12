@@ -11,14 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gitonga.plutoAirlines.models.CommercialFlight;
 import com.gitonga.plutoAirlines.models.CommercialReservation;
 import com.gitonga.plutoAirlines.services.CountryService;
+import com.gitonga.plutoAirlines.services.PassengerService;
+import com.gitonga.plutoAirlines.services.CommercialFlightService;
 import com.gitonga.plutoAirlines.services.CommercialReservationService;
 
 @Controller
 public class CommercialReservationController {
 
 	@Autowired 	private CommercialReservationService commercialReservationService;
+	@Autowired 	private PassengerService passengerService;
+	@Autowired 	private CommercialFlightService commercialFlightService;
  
 	
 	
@@ -26,6 +31,8 @@ public class CommercialReservationController {
 	public String findAll(Model model) {
 		
 		model.addAttribute("commercialReservations", commercialReservationService.findAll());
+		model.addAttribute("passengers", passengerService.findAll());
+		model.addAttribute("commercialFlights", commercialFlightService.findAll());
 		
 		return "commercialReservation";
 	}
