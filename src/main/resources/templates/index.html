@@ -2,180 +2,167 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
-  <meta name="author" content="GeeksLabs">
-  <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Home Page</title>
+    <title>Home Page</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- bootstrap theme -->
-  <link href="css/bootstrap-theme.css" rel="stylesheet">
-  <!--external css-->
-  <!-- font icon -->
-  <link href="css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
-  <!-- Custom styles -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet" /><!-- No change detected -->
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <!-- No change detected -->
 
 
 </head>
 
 <body>
-  <!-- container section start -->
-  <section id="container" class="">
-    <!--header start-->
+    <!-- container section start -->
+    <section id="container" class="">
+        <!--header start-->
 
-    <header class="header dark-bg">
-      <div class="toggle-nav">
-        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
-      </div>
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
 
-      <!--logo start-->
-      <a href="index.html" class="logo">Pluto Airlines </a>
-      <!--logo end-->
-
-
+            <!--logo start-->
+            <a href="index.html" class="logo">Pluto Airlines </a>
+            <!--logo end-->
 
 
-    </header>
-    <!--header end-->
+
+
+        </header>
+        <!--header end-->
 
         <!--sidebar start-->
-    <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu">
-          <li class="active">
-            <a class="" th:href="@{/index}">
-                          <i class="icon_house_alt"></i>
-                          <span>Dashboard</span>
-                      </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_document_alt"></i>
-                          <span>Airliners</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" th:href="@{/commercialCarriers}">Commercial Carriers</a></li>
-              <li><a class="" th:href="@{/cargoCarriers}">Cargo Carriers</a></li>
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <a class="" th:href="@{/index}">
+                            <i class="icon_house_alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="icon_document_alt"></i>
+                            <span>Airliners</span>
+                            <span class="menu-arrow arrow_carrot-right"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" th:href="@{/commercialCarriers}">Commercial Carriers</a></li>
+                            <li><a class="" th:href="@{/cargoCarriers}">Cargo Carriers</a></li>
 
 
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_desktop"></i>
-                          <span>Flights</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" th:href="@{/commercialFlights}">Commercial Flights</a></li>
-              <li><a class="" th:href="@{/cargoFlights}">Cargo Flights</a></li>
-              <li><a class="" th:href="@{/flightStatuses}">Flight Statuses</a></li>
-              
-            </ul>
-          </li>
-         
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_desktop"></i>
-                          <span>People</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" th:href="@{/employees}"> Employees </a></li>
-              <li><a class="" th:href="@{/passengers}">Passengers</a></li>
-              <li><a class="" th:href="@{/pilots}">Pilots</a></li>
-              <li><a class="" th:href="@{/flightAttendants}">Flight Attendants</a></li>
-              <li><a class="" th:href="@{/users}">Users</a></li>
-            </ul>
-          </li>
-          <li>
-            
-            
-            
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_desktop"></i>
-                          <span>HR Settings</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" th:href="@{/jobTitles}">Job Titles</a></li>
-              <li><a class="" th:href="@{/employeeTypes}">Employee Types</a></li>
-            </ul>
-          </li>
-          <li>
-          
-          
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_desktop"></i>
-                          <span>Reservations</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" th:href="@{/commercialReservations}">Comm Reservations</a></li>
-              <li><a class="" th:href="@{/cargoReservations}">Cargo Reservations</a></li>
-            
-            </ul>
-          </li>
-   
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="icon_desktop"></i>
+                            <span>Flights</span>
+                            <span class="menu-arrow arrow_carrot-right"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" th:href="@{/commercialFlights}">Commercial Flights</a></li>
+                            <li><a class="" th:href="@{/cargoFlights}">Cargo Flights</a></li>
+                            <li><a class="" th:href="@{/flightStatuses}">Flight Statuses</a></li>
 
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_desktop"></i>
-                          <span>Globals</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" th:href="@{/countries}">Countries</a></li>
-              <li><a class="" th:href="@{/states}">States</a></li>
-              <li><a class="" th:href="@{/operationsCities}">Operations Cities</a></li>
-            </ul>
-          </li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="icon_desktop"></i>
+                            <span>People</span>
+                            <span class="menu-arrow arrow_carrot-right"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" th:href="@{/employees}"> Employees </a></li>
+                            <li><a class="" th:href="@{/passengers}">Passengers</a></li>
+                            <li><a class="" th:href="@{/pilots}">Pilots</a></li>
+                            <li><a class="" th:href="@{/flightAttendants}">Flight Attendants</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
 
 
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
+
+                        <li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="icon_desktop"></i>
+                                    <span>Reservations</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" th:href="@{/commercialReservations}">Comm Reservations</a></li>
+                                    <li><a class="" th:href="@{/commercialReservations}">Cargo Reservations</a></li>
+
+                                </ul>
+                            </li>
+
+
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="icon_desktop"></i>
+                                    <span>Globals</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" th:href="@{/countries}">Countries</a></li>
+                                    <li><a class="" th:href="@{/states}">States</a></li>
+                                    <li><a class="" th:href="@{/operationsCities}">Operations Cities</a></li>
+                                </ul>
+                            </li>
+
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
         <!--sidebar ends here-->
 
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
 
 
 
 
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
 
 
 
 
-  <!-- javascripts -->
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+
+                <!-- javascripts -->
+                <script src="js/jquery.js"></script>
+                <script src="js/bootstrap.min.js"></script>
 
 
-  <!-- nice scroll -->
-  <script src="js/jquery.scrollTo.min.js"></script>
-  <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
- 
-  <!--custome script for all page-->
-  <script src="js/scripts.js"></script>
-  <script src="js/country.js"></script>
+                <!-- nice scroll -->
+                <script src="js/jquery.scrollTo.min.js"></script>
+                <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+
+                <!--custome script for all page-->
+                <script src="js/scripts.js"></script>
+                <script src="js/country.js"></script>
 
 
 
 </body>
-
-

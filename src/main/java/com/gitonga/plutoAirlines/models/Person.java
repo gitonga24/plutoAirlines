@@ -41,9 +41,6 @@ public class Person {
 	private State state;
 	private Integer stateid; 
 	
- 
-
-	
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfBirth;
@@ -51,6 +48,10 @@ public class Person {
 	private String address;
 	private String phone;
 	private String email;
+	
+	
+	
+	
 	public Integer getId() {
 		return id;
 	}

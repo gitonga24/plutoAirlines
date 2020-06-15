@@ -3,6 +3,8 @@ package com.gitonga.plutoAirlines.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,6 +24,34 @@ public class Pilot extends Person {
 	@DateTimeFormat(pattern ="yyyy-MM-dd")
 	private Date hireDate;
 
+	@OneToOne
+	@JoinColumn(name="commercialFlightid", insertable=false, updatable=false)
+	private CommercialFlight CommercialFlight;
+	private Integer commercialFlightid;
+
+
+	
+	public CommercialFlight getCommercialFlight() {
+		return CommercialFlight;
+	}
+
+
+
+	public void setCommercialFlight(CommercialFlight commercialFlight) {
+		CommercialFlight = commercialFlight;
+	}
+
+
+
+	public Integer getCommercialFlightid() {
+		return commercialFlightid;
+	}
+
+
+
+	public void setCommercialFlightid(Integer commercialFlightid) {
+		this.commercialFlightid = commercialFlightid;
+	}
 
 
 

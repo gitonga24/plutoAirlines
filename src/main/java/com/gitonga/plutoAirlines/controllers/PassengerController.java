@@ -22,36 +22,27 @@ public class PassengerController {
 	@Autowired private PassengerService passengerService;
 	@Autowired private CountryService countryService;
 	@Autowired private StateService stateService;
-	
-	
-	
+		
 	@GetMapping("passengers")
 	public String findAll(Model model){
 		model.addAttribute("passengers", passengerService.findAll());
 		model.addAttribute("countries", countryService.findAll());
 		model.addAttribute("states", stateService.findAll());
 		return "passenger";
-		
 	}
-	
-	
+		
 	@GetMapping()
 	@RequestMapping("passengers/findById")
 	@ResponseBody
 	public Optional<Passenger> findById(Integer id) {
 		return passengerService.findById(id);
 	}
-	
-	
-	
-	
-	//Add New 
+		
 	@PostMapping(value="passengers/addNew")
 	public String addNew(Passenger passenger) {
 		passengerService.save(passenger);
 		return "redirect:/passengers";
 	}
-
 	
 	@RequestMapping(value="passengers/update", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Passenger passenger) {
@@ -65,6 +56,4 @@ public class PassengerController {
 		return "redirect:/passengers";
 	}	
 		
-	
-
 }

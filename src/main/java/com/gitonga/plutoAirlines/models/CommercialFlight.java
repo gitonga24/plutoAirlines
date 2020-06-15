@@ -31,9 +31,44 @@ public class CommercialFlight extends Flight {
 	private Integer commercialCarrierid;
 	
 	
+	@OneToOne
+	@JoinColumn(name="pilotid", insertable=false, updatable=false)
+	private Pilot pilot;
+	private Integer pilotid;
 	
+	
+	@OneToOne
+	@JoinColumn(name="flightAttendantid", insertable=false, updatable=false)
+	private FlightAttendant flightAttendant;
+	private Integer flightAttendantid;
 
 	
+	
+	
+	public FlightAttendant getFlightAttendant() {
+		return flightAttendant;
+	}
+	public void setFlightAttendant(FlightAttendant flightAttendant) {
+		this.flightAttendant = flightAttendant;
+	}
+	public Integer getFlightAttendantid() {
+		return flightAttendantid;
+	}
+	public void setFlightAttendantid(Integer flightAttendantid) {
+		this.flightAttendantid = flightAttendantid;
+	}
+	public Pilot getPilot() {
+		return pilot;
+	}
+	public void setPilot(Pilot pilot) {
+		this.pilot = pilot;
+	}
+	public Integer getPilotid() {
+		return pilotid;
+	}
+	public void setPilotid(Integer pilotid) {
+		this.pilotid = pilotid;
+	}
 	@OneToMany(mappedBy="commercialFlight")
 	private List<CommercialReservation> commercialReservations;
 	

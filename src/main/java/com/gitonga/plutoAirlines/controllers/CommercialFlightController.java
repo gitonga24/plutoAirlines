@@ -15,12 +15,16 @@ import com.gitonga.plutoAirlines.models.CommercialFlight;
 
 import com.gitonga.plutoAirlines.repositories.CommercialFlightRepository;
 import com.gitonga.plutoAirlines.services.CountryService;
+import com.gitonga.plutoAirlines.services.FlightAttendantService;
+import com.gitonga.plutoAirlines.services.PilotService;
 import com.gitonga.plutoAirlines.services.CommercialFlightService;
 
 @Controller
 public class CommercialFlightController {
 	
 	@Autowired 	private CommercialFlightService commercialFlightsService;
+	@Autowired 	private PilotService pilotService;
+	@Autowired 	private FlightAttendantService flightAttendantService;
 	
 	
 	
@@ -28,6 +32,8 @@ public class CommercialFlightController {
 	public String findAll(Model model) {
 		
 		model.addAttribute("commercialFlights", commercialFlightsService.findAll());
+		model.addAttribute("pilots", pilotService.findAll());
+		model.addAttribute("flightAttendants", flightAttendantService.findAll());
 		
 		return "commercialFlight";
 	}
